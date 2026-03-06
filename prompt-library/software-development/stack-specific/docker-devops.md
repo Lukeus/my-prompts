@@ -41,7 +41,7 @@ Design a CI/CD pipeline for the following project:
 
 The pipeline should include:
 1. Code quality gates (lint, format, type check)
-2. Test stages (unit → integration → e2e)
+2. Test stages (unit -> integration -> e2e)
 3. Security scanning (SAST, dependency audit, container scan)
 4. Build and push artifacts/images
 5. Deployment with rollback capability

@@ -198,9 +198,9 @@ Provide:
 
 ### When to Use
 
-- Moving from one warehouse to another (e.g., Redshift → Snowflake)
-- Migrating from legacy ETL to modern stack (e.g., stored procs → dbt)
-- Re-platforming a database (e.g., Oracle → Postgres)
+- Moving from one warehouse to another (e.g., Redshift -> Snowflake)
+- Migrating from legacy ETL to modern stack (e.g., stored procs -> dbt)
+- Re-platforming a database (e.g., Oracle -> Postgres)
 - Consolidating multiple data sources into a single platform
 
 ---
@@ -504,7 +504,7 @@ My dbt_project.yml materialization config:
 ```
 
 Evaluate:
-1. Does the staging → intermediate → mart layering make sense?
+1. Does the staging -> intermediate -> mart layering make sense?
 2. Are models in the right directories?
 3. Is the materialization strategy appropriate per layer?
 4. Are there models that should be refactored or consolidated?

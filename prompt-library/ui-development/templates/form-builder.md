@@ -28,7 +28,7 @@ Requirements:
 2. Server-side error handling (display API errors per field)
 3. Loading state during submission (disable form, show spinner)
 4. Prevent double submission
-5. Proper label → input associations
+5. Proper label -> input associations
 6. Autofocus on first field
 7. Tab order follows visual order
 8. Announce errors to screen readers (aria-live region)

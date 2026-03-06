@@ -26,21 +26,21 @@ The adaptation engine. Scans a codebase, detects the stack (languages, framework
 
 ## Repository Structure
 
-```
+```text
 prompts/
-├── prompt-library/           # 41 prompt templates and playbooks
-│   ├── data-engineering/
-│   ├── software-development/
-│   ├── ui-development/
-│   ├── prompt-refinement/
-│   ├── codebase-research/
-│   └── INDEX.md              # Master index of all prompts
-├── prompt-eng-toolkit-source/ # Toolkit skill source
-│   ├── references/           # Full template source files by category
-│   ├── scripts/              # Codebase scanner and prompt adapter
-│   ├── assets/               # Setup template
-│   └── evals/                # Skill evaluation tests
-└── prompt-eng-toolkit.skill  # Compiled skill file
+|-- prompt-library/             # 41 prompt templates and playbooks
+|   |-- data-engineering/
+|   |-- software-development/
+|   |-- ui-development/
+|   |-- prompt-refinement/
+|   |-- codebase-research/
+|   `-- INDEX.md                # Master index of all prompts
+|-- prompt-eng-toolkit-source/  # Toolkit skill source
+|   |-- references/             # Full template source files by category
+|   |-- scripts/                # Scanner, adapter, and library generator
+|   |-- assets/                 # Setup template
+|   `-- evals/                  # Skill evaluation tests
+`-- prompt-eng-toolkit.skill    # Compiled skill file
 ```
 
 ## Quick Start
@@ -53,9 +53,17 @@ Open any template in [prompt-library/](prompt-library/), replace `{{PLACEHOLDER}
 
 Use the toolkit to scan your codebase and generate project-specific prompts:
 
+```bash
+python prompt-eng-toolkit-source/scripts/generate_prompt_library.py \
+  --repo /path/to/your/repo \
+  --output-dir /path/to/your/repo/.claude/prompts \
+  --tool claude
+```
+
 1. Point the toolkit at your repo
 2. It detects your stack (languages, frameworks, database, testing, CI/CD)
-3. All prompts get rewritten with your project's actual values
-4. Output goes to `.claude/`, `.cursor/`, `.github/copilot/`, or wherever you prefer
+3. It selects the relevant prompt categories and stack-specific variants
+4. The prompts get rewritten with your project's actual values
+5. Output goes to `.claude/prompts/`, `.cursor/prompts/`, `.github/copilot/prompts/`, or wherever you prefer
 
 The adapted prompts work with any AI coding assistant -- Claude, Copilot, Cursor, or anything that reads markdown.

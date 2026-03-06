@@ -20,6 +20,8 @@ The user places this skill in their repo and asks you to adapt it. You scan the 
 
 The user asks for a specific type of prompt (e.g., "give me a code review prompt for this project"). You read the relevant reference file, scan enough of the codebase to fill in context, and produce a tailored prompt.
 
+When the user wants prompts written to disk, prefer `scripts/generate_prompt_library.py` for the full scan/adapt/write workflow instead of re-implementing the file generation manually.
+
 ---
 
 ## Scan & Adapt Workflow
@@ -32,16 +34,16 @@ Gather the fingerprint of the project. Run these checks (adapt based on what's a
 
 ```
 # What you're looking for and where to find it
-1. Languages & frameworks  → package.json, requirements.txt, Cargo.toml, go.mod, Gemfile, *.csproj, build.gradle
-2. Directory structure      → tree -L 3 (or ls -R with depth limit)
-3. Architecture pattern     → Look for src/, app/, lib/, services/, components/, pages/, routes/
-4. Database/data layer      → Look for migrations/, models/, schema/, prisma/, alembic/, dbt/
-5. Testing setup            → Look for test/, __tests__/, spec/, *.test.*, pytest.ini, jest.config.*
-6. CI/CD                    → .github/workflows/, .gitlab-ci.yml, Jenkinsfile, .circleci/
-7. Containerization         → Dockerfile, docker-compose.yml, k8s/
-8. Linting/formatting       → .eslintrc, .prettierrc, ruff.toml, .editorconfig, pyproject.toml
-9. Existing AI config       → .claude/, .copilot/, .cursor/, .aider*, CLAUDE.md
-10. README & docs           → README.md, docs/, CONTRIBUTING.md, ADRs
+1. Languages & frameworks  -> package.json, requirements.txt, Cargo.toml, go.mod, Gemfile, *.csproj, build.gradle
+2. Directory structure      -> tree -L 3 (or ls -R with depth limit)
+3. Architecture pattern     -> Look for src/, app/, lib/, services/, components/, pages/, routes/
+4. Database/data layer      -> Look for migrations/, models/, schema/, prisma/, alembic/, dbt/
+5. Testing setup            -> Look for test/, __tests__/, spec/, *.test.*, pytest.ini, jest.config.*
+6. CI/CD                    -> .github/workflows/, .gitlab-ci.yml, Jenkinsfile, .circleci/
+7. Containerization         -> Dockerfile, docker-compose.yml, k8s/
+8. Linting/formatting       -> .eslintrc, .prettierrc, ruff.toml, .editorconfig, pyproject.toml
+9. Existing AI config       -> .claude/, .copilot/, .cursor/, .aider*, CLAUDE.md
+10. README & docs           -> README.md, docs/, CONTRIBUTING.md, ADRs
 ```
 
 ### Step 2: Build the Project Profile
@@ -90,10 +92,10 @@ Not every project needs every prompt. Based on the profile, select which categor
 For each selected prompt template, replace `{{PLACEHOLDER}}` values with project-specific defaults. The goal is that when a developer copies a prompt, 60-80% of the fields are already filled in — they only need to add the specifics of their current task.
 
 **Adaptation rules:**
-- `{{LANGUAGE}}` → the project's primary language
-- `{{FRAMEWORK}}` → the detected framework
-- `{{WAREHOUSE}}` → the detected database/warehouse
-- `{{TEST_FRAMEWORK}}` → the detected test runner
+- `{{LANGUAGE}}` -> the project's primary language
+- `{{FRAMEWORK}}` -> the detected framework
+- `{{WAREHOUSE}}` -> the detected database/warehouse
+- `{{TEST_FRAMEWORK}}` -> the detected test runner
 - Stack-specific prompts get the actual tool versions and config patterns
 - Playbook prompts get the project's architecture baked into the context sections
 - Leave task-specific placeholders (like `{{YOUR_CODE}}` or `{{BUG_DESCRIPTION}}`) as-is — those change every use

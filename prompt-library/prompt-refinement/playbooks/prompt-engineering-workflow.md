@@ -53,7 +53,7 @@ Draft the prompt using this structure:
 3. **Task** — Clear, specific instructions
 4. **Constraints** — Boundaries and rules
 5. **Output format** — Exact schema or template
-6. **Examples** — 2-3 few-shot examples (input → output pairs)
+6. **Examples** — 2-3 few-shot examples (input -> output pairs)
 7. **Edge case handling** — What to do when uncertain
 
 Provide two versions:
@@ -115,6 +115,6 @@ Harden it by:
 ## Usage Notes
 
 - Don't skip Step 1 — vague requirements lead to endless iteration
-- Step 3 is iterative — expect 3-5 rounds of test → fix → retest
+- Step 3 is iterative — expect 3-5 rounds of test -> fix -> retest
 - The compact version from Step 2 often works fine — try it first to save cost
 - Version tagging (Step 4) is essential for debugging production issues

@@ -10,6 +10,8 @@ This directory contains {{PROMPT_COUNT}} prompt templates and playbooks, customi
 
 Each prompt has project-specific values pre-filled. You just add the details of your current task and go.
 
+{{TOOL_NOTE}}
+
 ## Quick Start
 
 ### With Claude Code

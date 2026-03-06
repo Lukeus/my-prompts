@@ -1,6 +1,6 @@
 # Prompt Library — Master Index
 
-**42 prompts** across 5 categories. Templates for quick use, playbooks for depth, stack-specific variants for your tools.
+**41 prompts** across 5 categories. Templates for quick use, playbooks for depth, stack-specific variants for your tools.
 
 ---
 
@@ -55,7 +55,7 @@
 - [Accessibility Audit](ui-development/playbooks/accessibility-audit.md) — Comprehensive a11y review (3 steps)
 
 ### Stack-Specific
-- [React](ui-development/stack-specific/react.md) — Hooks, state management, performance, class→hooks migration
+- [React](ui-development/stack-specific/react.md) - Hooks, state management, performance, class-to-hooks migration
 
 ---
 
@@ -68,12 +68,12 @@
 - [Eval Generator](prompt-refinement/templates/eval-generator.md) — Create test cases to measure prompt quality
 
 ### Playbooks
-- [Prompt Engineering Workflow](prompt-refinement/playbooks/prompt-engineering-workflow.md) — Requirements → draft → test → production (4 phases)
+- [Prompt Engineering Workflow](prompt-refinement/playbooks/prompt-engineering-workflow.md) — Requirements -> draft -> test -> production (4 phases)
 - [Prompt Migration](prompt-refinement/playbooks/prompt-migration.md) — Migrate prompts between models (3 steps)
 
 ---
 
-## Codebase Research (8 prompts)
+## Codebase Research (10 prompts)
 
 ### Exploration
 - [Repo Onboarding](codebase-research/exploration/repo-onboarding.md) — Understand an unfamiliar codebase fast

@@ -85,12 +85,25 @@ def build_replacements(profile: dict) -> dict:
     frontend = profile.get("frontend", {})
     conventions = profile.get("conventions", {})
 
+    def first_or_placeholder(values, placeholder):
+        if isinstance(values, list) and values:
+            return values[0]
+        return placeholder
+
     primary_lang = languages[0] if languages else "{{LANGUAGE}}"
     primary_framework = frameworks[0] if frameworks else "{{FRAMEWORK}}"
     primary_db = databases[0] if databases else "{{DATABASE}}"
     primary_test = test_frameworks[0] if test_frameworks else "{{TEST_FRAMEWORK}}"
-    frontend_fw = frontend.get("frameworks", ["{{FRONTEND_FRAMEWORK}}"])[0] if isinstance(frontend, dict) else "{{FRONTEND_FRAMEWORK}}"
-    styling = frontend.get("styling", ["{{STYLING}}"])[0] if isinstance(frontend, dict) and frontend.get("styling") else "{{STYLING}}"
+    frontend_fw = (
+        first_or_placeholder(frontend.get("frameworks"), "{{FRONTEND_FRAMEWORK}}")
+        if isinstance(frontend, dict)
+        else "{{FRONTEND_FRAMEWORK}}"
+    )
+    styling = (
+        first_or_placeholder(frontend.get("styling"), "{{STYLING}}")
+        if isinstance(frontend, dict)
+        else "{{STYLING}}"
+    )
 
     return {
         "{{LANGUAGE}}": primary_lang,
@@ -123,11 +136,11 @@ def adapt_template(template_text: str, replacements: dict) -> str:
 
 def adapt_file(template_path: Path, output_path: Path, replacements: dict):
     """Adapt a single template file."""
-    content = template_path.read_text()
+    content = template_path.read_text(encoding="utf-8")
     adapted = adapt_template(content, replacements)
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_text(adapted)
+    output_path.write_text(adapted, encoding="utf-8")
     print(f"  ✓ {template_path.name} → {output_path}")
 
 
@@ -151,7 +164,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # Load profile
-    profile_text = Path(args.profile).read_text()
+    profile_text = Path(args.profile).read_text(encoding="utf-8")
     profile = parse_simple_yaml(profile_text)
     replacements = build_replacements(profile)
 

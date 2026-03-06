@@ -106,7 +106,7 @@ My dbt_project.yml materialization config:
 ```
 
 Evaluate:
-1. Does the staging → intermediate → mart layering make sense?
+1. Does the staging -> intermediate -> mart layering make sense?
 2. Are models in the right directories?
 3. Is the materialization strategy appropriate per layer?
 4. Are there models that should be refactored or consolidated?

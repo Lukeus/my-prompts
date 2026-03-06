@@ -125,6 +125,11 @@ def scan_directory_structure(repo_path: Path) -> dict:
     elif (repo_path / ".circleci").exists():
         structure["ci_tool"] = "CircleCI"
 
+    github_copilot_dir = repo_path / ".github" / "copilot"
+    if github_copilot_dir.exists():
+        structure["has_ai_config"] = True
+        structure["ai_config_dirs"].append(".github/copilot")
+
     return structure
 
 
@@ -269,20 +274,20 @@ def detect_frameworks(repo_path: Path) -> dict:
     return result
 
 
-def detect_architecture(structure: dict, frameworks: dict) -> str:
+def detect_architecture(repo_path: Path, structure: dict, frameworks: dict) -> str:
     """Infer the architecture pattern."""
     dirs = set(structure["top_level_dirs"])
 
     # Monorepo indicators
     if dirs & {"packages", "apps", "services", "modules"}:
         return "monorepo"
-    if (Path(sys.argv[1]) / "lerna.json").exists():
+    if (repo_path / "lerna.json").exists():
         return "monorepo"
-    if (Path(sys.argv[1]) / "nx.json").exists():
+    if (repo_path / "nx.json").exists():
         return "monorepo"
-    if (Path(sys.argv[1]) / "turbo.json").exists():
+    if (repo_path / "turbo.json").exists():
         return "monorepo"
-    if (Path(sys.argv[1]) / "pnpm-workspace.yaml").exists():
+    if (repo_path / "pnpm-workspace.yaml").exists():
         return "monorepo"
 
     # Microservices
@@ -290,7 +295,7 @@ def detect_architecture(structure: dict, frameworks: dict) -> str:
         return "microservices"
 
     # Serverless
-    if (Path(sys.argv[1]) / "serverless.yml").exists():
+    if (repo_path / "serverless.yml").exists():
         return "serverless"
     if dirs & {"lambda", "functions"}:
         return "serverless"
@@ -344,8 +349,17 @@ def build_profile(repo_path: Path) -> dict:
     structure = scan_directory_structure(repo_path)
     languages = detect_languages(repo_path)
     frameworks = detect_frameworks(repo_path)
-    architecture = detect_architecture(structure, frameworks)
+    architecture = detect_architecture(repo_path, structure, frameworks)
     conventions = detect_conventions(repo_path, languages)
+    frontend_frameworks = [
+        f for f in frameworks["frameworks"]
+        if f in ("React", "Vue", "Next.js", "Nuxt", "Svelte", "Angular")
+    ]
+    frontend_styling = [
+        f for f in frameworks["frameworks"]
+        if f in ("Tailwind CSS",)
+    ]
+    frontend_detected = structure["has_frontend"] or bool(frontend_frameworks)
 
     # Try to get project name
     pkg = parse_package_json(repo_path)
@@ -372,12 +386,9 @@ def build_profile(repo_path: Path) -> dict:
             "ci_tool": structure.get("ci_tool", "none detected"),
         },
         "frontend": {
-            "detected": structure["has_frontend"],
-            "frameworks": [f for f in frameworks["frameworks"]
-                          if f in ("React", "Vue", "Next.js", "Nuxt",
-                                   "Svelte", "Angular")],
-            "styling": [f for f in frameworks["frameworks"]
-                       if f in ("Tailwind CSS",)],
+            "detected": frontend_detected,
+            "frameworks": frontend_frameworks,
+            "styling": frontend_styling,
         },
         "conventions": conventions,
         "structure": {

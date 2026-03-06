@@ -83,7 +83,7 @@ Provide the optimized code with before/after React Profiler expectations.
 
 ---
 
-## Migration Helper (Class → Hooks)
+## Migration Helper (Class -> Hooks)
 
 ```
 Convert this class component to a functional component with hooks:
@@ -93,12 +93,12 @@ Convert this class component to a functional component with hooks:
 ```
 
 Convert:
-- this.state → useState
-- componentDidMount/Update/Unmount → useEffect (with correct deps)
-- Class methods → functions (with useCallback where needed)
-- Context consumers → useContext
-- Refs → useRef
-- Error boundaries → keep as class (or use react-error-boundary library)
+- this.state -> useState
+- componentDidMount/Update/Unmount -> useEffect (with correct deps)
+- Class methods -> functions (with useCallback where needed)
+- Context consumers -> useContext
+- Refs -> useRef
+- Error boundaries -> keep as class (or use react-error-boundary library)
 
 Flag any behavioral differences between the class and hook versions.
 ```

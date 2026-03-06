@@ -24,7 +24,7 @@ For each violation:
 1. Explain what it means in plain English
 2. Who is affected (screen reader users, keyboard users, low vision, cognitive)
 3. WCAG criterion and level (A, AA, AAA)
-4. Priority: critical (blocks usage) → high (major barrier) → medium → low
+4. Priority: critical (blocks usage) -> high (major barrier) -> medium -> low
 5. How to fix it with specific code examples
 6. How to test the fix
 ```

@@ -59,7 +59,7 @@ Convert this synchronous Python code to async:
 ```
 
 **Async framework:** {{asyncio | trio | anyio}}
-**I/O libraries to convert:** {{requests→httpx | psycopg2→asyncpg | etc.}}
+**I/O libraries to convert:** {{requests->httpx | psycopg2->asyncpg | etc.}}
 
 Provide:
 1. Async version with proper await points

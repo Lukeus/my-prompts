@@ -483,7 +483,7 @@ Convert this synchronous Python code to async:
 ```
 
 **Async framework:** {{asyncio | trio | anyio}}
-**I/O libraries to convert:** {{requests→httpx | psycopg2→asyncpg | etc.}}
+**I/O libraries to convert:** {{requests->httpx | psycopg2->asyncpg | etc.}}
 
 Provide:
 1. Async version with proper await points
@@ -571,7 +571,7 @@ Design a CI/CD pipeline for the following project:
 
 The pipeline should include:
 1. Code quality gates (lint, format, type check)
-2. Test stages (unit → integration → e2e)
+2. Test stages (unit -> integration -> e2e)
 3. Security scanning (SAST, dependency audit, container scan)
 4. Build and push artifacts/images
 5. Deployment with rollback capability

@@ -1,6 +1,6 @@
 # Prompt Migration Playbook
 
-> Migrate prompts between models (e.g., GPT-4 → Claude, or across model versions) without quality loss.
+> Migrate prompts between models (e.g., GPT-4 -> Claude, or across model versions) without quality loss.
 
 ## When to Use
 

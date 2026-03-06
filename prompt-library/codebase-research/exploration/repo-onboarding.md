@@ -18,7 +18,7 @@ Analyze the codebase and give me a onboarding guide:
 2. **Directory map** — What does each top-level directory contain and why?
 3. **Entry points** — Where does execution start? (main files, route handlers, event listeners)
 4. **Core abstractions** — What are the key classes/modules/patterns everything is built on?
-5. **Data flow** — How does data move through the system? (request → processing → storage)
+5. **Data flow** — How does data move through the system? (request -> processing -> storage)
 6. **Configuration** — Where are environment variables, feature flags, and settings managed?
 7. **Dependencies** — What are the critical external dependencies and what do they do?
 8. **Testing** — How do I run tests? What testing patterns are used?

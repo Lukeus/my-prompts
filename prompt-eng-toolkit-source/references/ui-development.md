@@ -90,7 +90,7 @@ Requirements:
 1. Semantic HTML structure
 2. Fully responsive — describe the layout shift at each breakpoint
 3. Skeleton/loading state for dynamic content areas
-4. Proper heading hierarchy (h1 → h2 → h3)
+4. Proper heading hierarchy (h1 -> h2 -> h3)
 5. Logical tab order for keyboard navigation
 
 Output:
@@ -138,7 +138,7 @@ Requirements:
 2. Server-side error handling (display API errors per field)
 3. Loading state during submission (disable form, show spinner)
 4. Prevent double submission
-5. Proper label → input associations
+5. Proper label -> input associations
 6. Autofocus on first field
 7. Tab order follows visual order
 8. Announce errors to screen readers (aria-live region)
@@ -342,7 +342,7 @@ For each violation:
 1. Explain what it means in plain English
 2. Who is affected (screen reader users, keyboard users, low vision, cognitive)
 3. WCAG criterion and level (A, AA, AAA)
-4. Priority: critical (blocks usage) → high (major barrier) → medium → low
+4. Priority: critical (blocks usage) -> high (major barrier) -> medium -> low
 5. How to fix it with specific code examples
 6. How to test the fix
 ```
@@ -492,7 +492,7 @@ Provide the optimized code with before/after React Profiler expectations.
 
 ---
 
-## Migration Helper (Class → Hooks)
+## Migration Helper (Class -> Hooks)
 
 ```
 Convert this class component to a functional component with hooks:
@@ -502,12 +502,12 @@ Convert this class component to a functional component with hooks:
 ```
 
 Convert:
-- this.state → useState
-- componentDidMount/Update/Unmount → useEffect (with correct deps)
-- Class methods → functions (with useCallback where needed)
-- Context consumers → useContext
-- Refs → useRef
-- Error boundaries → keep as class (or use react-error-boundary library)
+- this.state -> useState
+- componentDidMount/Update/Unmount -> useEffect (with correct deps)
+- Class methods -> functions (with useCallback where needed)
+- Context consumers -> useContext
+- Refs -> useRef
+- Error boundaries -> keep as class (or use react-error-boundary library)
 
 Flag any behavioral differences between the class and hook versions.
 ```

@@ -27,7 +27,7 @@ Requirements:
 1. Semantic HTML structure
 2. Fully responsive — describe the layout shift at each breakpoint
 3. Skeleton/loading state for dynamic content areas
-4. Proper heading hierarchy (h1 → h2 → h3)
+4. Proper heading hierarchy (h1 -> h2 -> h3)
 5. Logical tab order for keyboard navigation
 
 Output:

@@ -4,9 +4,9 @@
 
 ## When to Use
 
-- Moving from one warehouse to another (e.g., Redshift → Snowflake)
-- Migrating from legacy ETL to modern stack (e.g., stored procs → dbt)
-- Re-platforming a database (e.g., Oracle → Postgres)
+- Moving from one warehouse to another (e.g., Redshift -> Snowflake)
+- Migrating from legacy ETL to modern stack (e.g., stored procs -> dbt)
+- Re-platforming a database (e.g., Oracle -> Postgres)
 - Consolidating multiple data sources into a single platform
 
 ---
