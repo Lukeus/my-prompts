@@ -1,0 +1,23 @@
+{
+  "skill_name": "prompt-eng-toolkit",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I just cloned a Next.js monorepo with a PostgreSQL backend and dbt transformations. Can you scan the codebase and set up a prompt library in .claude/prompts/ that's adapted to our stack?",
+      "expected_output": "Should run codebase scan, detect Next.js + PostgreSQL + dbt stack, select relevant prompt categories (all of them in this case), adapt placeholders with project-specific values, and write adapted prompts to .claude/prompts/ with a README, INDEX, and project profile.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Give me a code review prompt customized for this Python/FastAPI project with pytest tests.",
+      "expected_output": "Should read the software-development reference, find the code review template, detect Python/FastAPI/pytest from context, and output an adapted prompt with those values pre-filled while leaving task-specific placeholders (like {{YOUR_CODE}}) intact.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "We're setting up AI prompts for our team. We use React with TypeScript, Tailwind, and deploy to AWS with GitHub Actions. Can you generate the full prompt library for .github/copilot/prompts/?",
+      "expected_output": "Should build profile from stated stack, select UI development + software development + codebase research categories, adapt all templates with React/TypeScript/Tailwind/AWS/GitHub Actions values, write to .github/copilot/prompts/ with Copilot-specific integration notes in the README.",
+      "files": []
+    }
+  ]
+}
